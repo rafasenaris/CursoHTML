@@ -4,6 +4,7 @@
     font-family: 'FontLogo';
     src: url("../_fonts/bubblegum-sans-regular.otf");
 }
+/*formatacao de cabecalho*/
 p{
     text-align: justify;
     text-indent: 50px;
@@ -129,7 +130,6 @@ nav#menu a{
 
 nav#menu a:hover{
     color: #ffffff;
-    /*text-decoration: ;*/
 }
 
 /*configuração de section*/
