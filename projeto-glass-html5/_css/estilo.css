@@ -233,6 +233,11 @@ aside#lateral h2{
     padding: 5px;
 }
 
+aside#lateral video{
+    width: 360px;
+    /*height: 200px;*/
+}
+
 footer#rodape{
     clear: both;
     border-top: 1px solid #606060;

@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="_css/form.css"/>
 </head>
 <script language="javascript" src="_javascript/funcoes.js"></script>
+<script>
+    function calc_total(){
+        var qtd = (document.getElementById('cqtd').value);
+        tot = qtd * 1500;
+        document.getElementById('ctot').value = tot;
+    }
+</script>
 <body>
 <div id="interface">
     <header id="cabecalho">
@@ -43,7 +50,7 @@
                 </hgroup>
             </header>
 
-            <form>
+            <form method="POST" id="fcontato" action="mailto:contato@cursoemvideo.com" oninput="calc_total();">
                 <fieldset id="usuario">
                     <legend>Identificação do Usuário</legend>
                         <p><label for="cnome">Nome:</label><input type="text" name="tname" id="cnome" size="20" maxlength="30" placeholder="Nome Completo"></p>
@@ -60,23 +67,34 @@
                     <legend>Endereço do Usuário</legend>
                         <p><label>Logradouro:<input type="text" name="trua" id="crua" size="20" maxlength="80" placeholder="Rua, Av, etc"></label></p>
                         <p><label for="cnum">Número:<input type="number" name="tnum" id="cnum" min="0" max="9999"></label></p>
-                        Estado:
-                        Cidade:
+                        <p><label for="cest">Estado:</label>
+                        <select name="test" id="cest">
+                            <optgroup label="Região Sudeste"><option value="rj">Rio de Janeito</option>
+                            <option value="sp" selected>São Paulo</option></optgroup>
+                        </select></p>
+
+                        <p><label for="ccid">Cidade:<input type="text" name="tcid" id="ccid" maxlength="40" size="20" placeholder="Sua cidade" list="cidades"></label></p>
+                        <datalist id="cidades">
+                            <option value="Rio de Janeiro"></option>
+                            <option value="Niteroi"></option>
+                        </datalist>
                 </fieldset>
+
                 <fieldset id="mensagem">
                     <legend>Mensagem do Usuário</legend>
-                        Grau de Urgência:
-                        Mensagem:
+                    <p><label for="curg">Grau de Urgência: Min<input type="range" name="turg" id="curg" min="0" max="10" step="2">Máx</label></p>
+                    <p><label for="cmsg">Mensagem:</label><textarea name="tmsg" id="cmsg" cols="45" rows="5" placeholder="Deixe aqui sua mensagem"></textarea></p>
                 </fieldset>
                 <fieldset id="pedido">
                     <legend>Quero um Google Glass</legend>
-                        Gostaria de adquirir um Google Glass quando disponível
-                        Cor:
-                        Quantidade:
-                        Preço Total: R$
+                    <p><input type="checkbox" name="tped" id="cped" checked>
+                    <label for="cped">Gostaria de adquirir um Google Glass quando disponível</label></p>
+                    <p><label for="ccor">Cor:</label><input type="color" name="tcor" id="ccor"></p>
+                    <p><label for="cqtd">Quantidade:</label><input type="number" name="tqtd" id="cqtd" min="0" max="5" value="0"></p>
+                    <p><label for="ctot">Preço Total: R$</label><input type="text" name="ttot" id="ctot" placeholder="Total a pagar" readonly></p>
                 </fieldset>
 
-                    [BOTÃO ENVIAR]
+                <input type="submit" value="Enviar">
             </form>
         </article>
     </section>
